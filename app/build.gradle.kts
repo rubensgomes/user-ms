@@ -93,6 +93,7 @@ dependencies {
   // ########## testImplementation ###########################################
   testImplementation("org.springframework.boot:spring-boot-starter-test")
   testImplementation("org.springframework.security:spring-security-test")
+  testImplementation("com.h2database:h2")
 
   // ########## testRuntimeOnly #############################################
   testRuntimeOnly("org.junit.platform:junit-platform-launcher")
@@ -174,6 +175,10 @@ tasks.compileJava {
 }
 
 tasks.named<Test>("test") { useJUnitPlatform() }
+
+tasks.javadoc {
+  options { (this as StandardJavadocDocletOptions).addStringOption("Xdoclint:none", "-quiet") }
+}
 
 // ----------------------------------------------------------------------------
 // --------------- >>> Gradle JVM Test Suite Plugin <<< -----------------------

@@ -1,0 +1,41 @@
+# Test configuration for User Microservice
+spring:
+  application:
+    name: user-ms-test
+    
+  # Use H2 in-memory database for tests
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password: ""
+    driver-class-name: org.h2.Driver
+    
+  # JPA Configuration for tests
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+        dialect: org.hibernate.dialect.H2Dialect
+        
+  # Mail Configuration (disabled for tests)
+  mail:
+    host: localhost
+    port: 25
+    username: test@example.com
+    password: test
+    
+# Application Specific Configuration for tests
+app:
+  base-url: http://localhost:8080
+  jwt:
+    secret: testSecretKey123456789012345678901234567890
+    expiration: 3600
+
+# Logging Configuration for tests
+logging:
+  level:
+    com.rubensgomes.userms: INFO
+    root: WARN

@@ -1,4 +1,3 @@
-
 # Gradle Build File Dependencies Update Plan
 
 ## Current State Analysis

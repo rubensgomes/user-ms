@@ -1,0 +1,73 @@
+# User Microservice Configuration
+spring:
+  application:
+    name: user-ms
+    
+  # Database Configuration
+  datasource:
+    url: jdbc:mariadb://localhost:3306/userms
+    username: ${DB_USER:userms}
+    password: ${DB_PASSWORD:password}
+    driver-class-name: org.mariadb.jdbc.Driver
+    
+  # JPA Configuration
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MariaDBDialect
+        
+  # Mail Configuration
+  mail:
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME:your-email@gmail.com}
+    password: ${MAIL_PASSWORD:your-app-password}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            
+# Application Specific Configuration
+app:
+  base-url: ${APP_BASE_URL:http://localhost:8080}
+  jwt:
+    secret: ${JWT_SECRET:mySecretKey123456789012345678901234567890}
+    expiration: ${JWT_EXPIRATION:86400}
+
+# Server Configuration
+server:
+  port: ${SERVER_PORT:8080}
+  servlet:
+    context-path: /
+
+# Logging Configuration
+logging:
+  level:
+    com.rubensgomes.userms: INFO
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    
+# Management Endpoints
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: when-authorized
+
+# OpenAPI Documentation
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

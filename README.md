@@ -107,11 +107,34 @@ Comprehensive API documentation is available in [API.md](./API.md).
 ### Development Commands
 
 ```bash
+# Display Java version installed
+./gradlew -q javaToolchains
+```
+
+```bash
+# Lint and unit tests
+./gradlew check -i
+```
+
+```bash
+# Build the project
+./gradlew build
+```
+
+```bash
+# Only Rubens can release
+./gradlew release -i
+```
+
+```bash
 # Run application with H2 database (development)
 ./gradlew bootRun --args='--spring.profiles.active=dev'
+```
 
+```bash
 # Run application with MariaDB (production)
 ./gradlew bootRun
+```
 
 # Stop the running application
 # Press Ctrl+C (or Cmd+C on Mac) in the terminal where the application is running
@@ -119,13 +142,6 @@ Comprehensive API documentation is available in [API.md](./API.md).
 # Alternative: Kill the application process
 ps aux | grep java | grep user-ms    # Find the process ID
 kill <PID>                           # Replace <PID> with actual process ID
-
-# Run tests
-./gradlew test
-
-# Build the project
-./gradlew build
-```
 
 ### Running with Docker
 

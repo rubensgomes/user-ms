@@ -81,15 +81,15 @@ testImplementation("org.springframework.security:spring-security-test")
 Remove or update the TODO comments that reference adding dependencies.
 
 ## Validation Checklist
-- [ ] All dependencies align with tech stack in README.md
-- [ ] Dependencies support API requirements from API.md
-- [ ] JWT authentication capabilities added
-- [ ] Database connectivity for MariaDB added
-- [ ] Email functionality for user workflows added
-- [ ] API documentation (Swagger/OpenAPI) added
-- [ ] Lombok for code reduction added
-- [ ] Security testing utilities added
-- [ ] No breaking changes to existing configuration
+- [X] All dependencies align with tech stack in README.md
+- [X] Dependencies support API requirements from API.md
+- [X] JWT authentication capabilities added
+- [X] Database connectivity for MariaDB added
+- [X] Email functionality for user workflows added
+- [X] API documentation (Swagger/OpenAPI) added
+- [X] Lombok for code reduction added
+- [X] Security testing utilities added
+- [X] No breaking changes to existing configuration
 
 ## Notes
 - Version numbers should be managed by Spring Boot dependency management where possible

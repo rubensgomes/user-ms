@@ -42,7 +42,6 @@ plugins {
 // --------------- >>> constants <<< ------------------------------------------
 // constant being used in this build script.
 //  gradle.properties:
-val mainClass = providers.gradleProperty("mainClass").get() as String
 val sonarKey = project.findProperty("sonar.projectKey") as String
 val sonarOrg = project.findProperty("sonar.organization") as String
 val sonarUrl = project.findProperty("sonar.host.url") as String
@@ -68,13 +67,15 @@ dependencies {
 
   // Security and JWT
   implementation("org.springframework.boot:spring-boot-starter-security")
-  implementation("io.jsonwebtoken:jjwt-api:0.12.3")
+  // io.jsonwebtoken:jjwt-api
+  implementation(libs.jjwt.api)
 
   // Database
   implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 
   // API Documentation
-  implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0")
+  // org.springdoc:springdoc-openapi-starter-webmvc-ui
+  implementation(libs.springdoc.openapi.starter.webmvc.ui)
 
   // Email
   implementation("org.springframework.boot:spring-boot-starter-mail")
@@ -87,13 +88,15 @@ dependencies {
 
   // ########## runtimeOnly ##################################################
   runtimeOnly("org.mariadb.jdbc:mariadb-java-client")
-  runtimeOnly("io.jsonwebtoken:jjwt-impl:0.12.3")
-  runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.12.3")
+  // io.jsonwebtoken:jjwt-impl
+  runtimeOnly(libs.jjwt.impl)
+  // io.jsonwebtoken:jjwt-jackson
+  runtimeOnly(libs.jjwt.jackson)
+  runtimeOnly("com.h2database:h2")
 
   // ########## testImplementation ###########################################
   testImplementation("org.springframework.boot:spring-boot-starter-test")
   testImplementation("org.springframework.security:spring-security-test")
-  testImplementation("com.h2database:h2")
 
   // ########## testRuntimeOnly #############################################
   testRuntimeOnly("org.junit.platform:junit-platform-launcher")
@@ -252,13 +255,13 @@ tasks.sonar { dependsOn("check") }
 // ----------------------------------------------------------------------------
 // https://docs.spring.io/spring-boot/gradle-plugin/index.html
 
-springBoot { this.mainClass.set("$mainClass") }
+springBoot { mainClass.set("com.rubensgomes.userms.UserMsApplication") }
 
 tasks.bootJar {
   // layered.enabled.set(false)
   layered.enabled.set(true)
   dependsOn("check")
-  manifest { attributes("Start-Class" to "$mainClass") }
+  manifest { attributes("Start-Class" to "com.rubensgomes.userms.UserMsApplication") }
 }
 
 // ----------------------------------------------------------------------------
@@ -266,6 +269,8 @@ tasks.bootJar {
 // ----------------------------------------------------------------------------
 
 tasks.register("addCopyright") {
+  group = "build"
+  description = "Adds copyright to all Java files in the src directory."
   val copyright =
       """
 /*

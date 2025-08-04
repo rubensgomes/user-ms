@@ -76,10 +76,10 @@ com.rubensgomes.userms/
 **Files to create:**
 
 - `controller/UserController.java` - User management endpoints
-    - POST /api/users/register
-    - GET /api/users/confirm
-    - PUT /api/users/change-password
-    - GET /api/users/profile
+    - POST /api/user/register
+    - GET /api/user/confirm
+    - PUT /api/user/change-password
+    - GET /api/user/profile
 - `controller/AuthController.java` - Authentication endpoints
     - POST /api/auth/login
     - POST /api/auth/forgot-password
@@ -128,14 +128,14 @@ com.rubensgomes.userms/
 
 ### Authentication Not Required
 
-1. **POST /api/users/register** - User registration
+1. **POST /api/user/register** - User registration
     - Validate email format and password strength
     - Check email uniqueness
     - Generate confirmation token
     - Send confirmation email asynchronously
     - Return user info without sensitive data
 
-2. **GET /api/users/confirm?token=...** - Email confirmation
+2. **GET /api/user/confirm?token=...** - Email confirmation
     - Validate confirmation token
     - Activate user account
     - Update confirmed timestamp
@@ -157,12 +157,12 @@ com.rubensgomes.userms/
 
 ### Authentication Required (JWT)
 
-6. **PUT /api/users/change-password** - Password change
+6. **PUT /api/user/change-password** - Password change
     - Validate current password
     - Update with new encrypted password
     - Update password change timestamp
 
-7. **GET /api/users/profile** - User profile
+7. **GET /api/user/profile** - User profile
     - Return current user information
     - No sensitive data exposure
 

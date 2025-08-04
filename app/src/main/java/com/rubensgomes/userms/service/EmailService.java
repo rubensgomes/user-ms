@@ -21,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
+import org.springframework.mail.MailSendException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.scheduling.annotation.Async;
@@ -73,7 +74,7 @@ public class EmailService {
       helper.setTo(email);
       helper.setSubject("Confirm Your Account - User Microservice");
 
-      String confirmationUrl = baseUrl + "/api/users/confirm?token=" + confirmationToken;
+      String confirmationUrl = baseUrl + "/api/user/confirm?token=" + confirmationToken;
       String htmlContent = buildConfirmationEmailContent(confirmationUrl);
 
       helper.setText(htmlContent, true);
@@ -83,7 +84,7 @@ public class EmailService {
 
     } catch (MessagingException | MailException e) {
       log.error("Failed to send confirmation email to: {}", email, e);
-      throw new RuntimeException("Failed to send confirmation email", e);
+      throw new MailSendException("Failed to send confirmation email", e);
     }
   }
 
@@ -116,7 +117,7 @@ public class EmailService {
 
     } catch (MessagingException | MailException e) {
       log.error("Failed to send password reset email to: {}", email, e);
-      throw new RuntimeException("Failed to send password reset email", e);
+      throw new MailSendException("Failed to send password reset email", e);
     }
   }
 

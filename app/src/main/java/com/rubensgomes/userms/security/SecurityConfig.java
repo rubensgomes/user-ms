@@ -89,8 +89,8 @@ public class SecurityConfig {
                 authz
                     // Public endpoints - no authentication required
                     .requestMatchers(
-                        "/api/users/register",
-                        "/api/users/confirm",
+                        "/api/user/register",
+                        "/api/user/confirm",
                         "/api/auth/login",
                         "/api/auth/forgot-password",
                         "/api/auth/reset-password")
@@ -98,6 +98,10 @@ public class SecurityConfig {
 
                     // Documentation endpoints
                     .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html")
+                    .permitAll()
+
+                    // H2 console (for development purposes)
+                    .requestMatchers("/h2-console/**")
                     .permitAll()
 
                     // Actuator endpoints

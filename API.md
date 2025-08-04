@@ -190,7 +190,7 @@ Authorization: Bearer <jwt-token>
 
 Register a new user account.
 
-- **URL**: `/api/users/register`
+- **URL**: `/api/user/register`
 - **Method**: `POST`
 - **Authentication**: Not required
 - **Content-Type**: `application/json`
@@ -230,7 +230,7 @@ Register a new user account.
 #### cURL Example
 
 ```bash
-curl -X POST http://localhost:8080/api/users/register \
+curl -X POST http://localhost:8080/api/user/register \
   -H "Content-Type: application/json" \
   -d '{
     "email": "john.doe@example.com",
@@ -297,7 +297,7 @@ curl -X POST http://localhost:8080/api/auth/login \
 
 Change user's current password (requires authentication).
 
-- **URL**: `/api/users/change-password`
+- **URL**: `/api/user/change-password`
 - **Method**: `PUT`
 - **Authentication**: Required (JWT Bearer token)
 - **Content-Type**: `application/json`
@@ -335,7 +335,7 @@ Change user's current password (requires authentication).
 #### cURL Example
 
 ```bash
-curl -X PUT http://localhost:8080/api/users/change-password \
+curl -X PUT http://localhost:8080/api/user/change-password \
   -H "Content-Type: application/json" \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..." \
   -d '{
@@ -439,7 +439,7 @@ curl -X POST http://localhost:8080/api/auth/reset-password \
 
 Retrieve authenticated user's profile information.
 
-- **URL**: `/api/users/profile`
+- **URL**: `/api/user/profile`
 - **Method**: `GET`
 - **Authentication**: Required (JWT Bearer token)
 
@@ -459,7 +459,7 @@ Retrieve authenticated user's profile information.
 #### cURL Example
 
 ```bash
-curl -X GET http://localhost:8080/api/users/profile \
+curl -X GET http://localhost:8080/api/user/profile \
   -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 ```
 

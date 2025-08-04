@@ -12,7 +12,8 @@ user (e.g., during sign in), and display the user account information.
 - **Java 21** - Programming language
 - **Spring Boot 3.5.x** - Application framework
 - **Gradle 9.0.x** - Build tool
-- **MariaDB 11.8.x** - Database
+- **MariaDB 11.8.x** - Production database
+- **H2 Database** - Development/testing database
 - **Spring Security** - Authentication and authorization
 - **Spring Data JPA** - Database access layer
 - **Lombok** - Boilerplate code reduction
@@ -53,14 +54,28 @@ com.rubensgomes.userms/
 
 - Java 21
 - Gradle 9.0.x
-- MariaDB 11.8.x
+- MariaDB 11.8.x (for production)
+- H2 Database (included for development)
 
 ### Setup
 
+#### Development Setup (Recommended)
 1. Clone the repository
-2. Configure database connection in `application.yml`
-3. Run database migrations
-4. Start the application: `./gradlew bootRun`
+2. Start the application with H2 database: 
+   ```bash
+   ./gradlew bootRun --args='--spring.profiles.active=dev'
+   ```
+3. Access H2 Console: http://localhost:8080/h2-console
+   - JDBC URL: `jdbc:h2:mem:userms`
+   - Username: `sa`
+   - Password: (leave empty)
+
+#### Production Setup
+1. Clone the repository
+2. Install and configure MariaDB 11.8.x
+3. Configure database connection in `application.yml`
+4. Run database migrations
+5. Start the application: `./gradlew bootRun`
 
 ### Environment Configuration
 
@@ -89,15 +104,26 @@ Comprehensive API documentation is available in [API.md](./API.md).
 
 ## Development
 
-### Running Tests
+### Development Commands
 
 ```bash
+# Run application with H2 database (development)
+./gradlew bootRun --args='--spring.profiles.active=dev'
+
+# Run application with MariaDB (production)
+./gradlew bootRun
+
+# Stop the running application
+# Press Ctrl+C (or Cmd+C on Mac) in the terminal where the application is running
+
+# Alternative: Kill the application process
+ps aux | grep java | grep user-ms    # Find the process ID
+kill <PID>                           # Replace <PID> with actual process ID
+
+# Run tests
 ./gradlew test
-```
 
-### Building
-
-```bash
+# Build the project
 ./gradlew build
 ```
 

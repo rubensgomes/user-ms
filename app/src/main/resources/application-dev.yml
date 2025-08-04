@@ -1,26 +1,37 @@
-# User Microservice Configuration
+# Development Profile Configuration
+# Use H2 in-memory database for development to avoid MariaDB dependency
+
 spring:
   application:
     name: user-ms
 
-  # Database Configuration
+  # H2 Database Configuration for Development
   datasource:
-    url: jdbc:mariadb://localhost:3306/userms
-    username: ${DB_USER:userms}
-    password: ${DB_PASSWORD:password}
-    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:h2:mem:userms;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
 
-  # JPA Configuration
+  # H2 Console Configuration
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+      settings:
+        web-allow-others: false
+        trace: false
+
+  # JPA Configuration for H2
   jpa:
     hibernate:
-      ddl-auto: update
-    show-sql: false
+      ddl-auto: create-drop
+    show-sql: true
     properties:
       hibernate:
         format_sql: true
-        dialect: org.hibernate.dialect.MariaDBDialect
+        dialect: org.hibernate.dialect.H2Dialect
 
-  # Mail Configuration
+  # Mail Configuration (same as production)
   mail:
     host: ${MAIL_HOST:smtp.gmail.com}
     port: ${MAIL_PORT:587}
@@ -46,24 +57,26 @@ server:
   servlet:
     context-path: /
 
-# Logging Configuration
+# Enhanced Logging for Development
 logging:
   level:
-    com.rubensgomes.userms: INFO
+    com.rubensgomes.userms: DEBUG
     org.springframework.security: DEBUG
     org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
   pattern:
-    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
 
 # Management Endpoints
 management:
   endpoints:
     web:
       exposure:
-        include: health,info,metrics
+        include: health,info,metrics,h2-console
   endpoint:
     health:
-      show-details: when-authorized
+      show-details: always
 
 # OpenAPI Documentation
 springdoc:

@@ -44,7 +44,7 @@ import org.springframework.web.bind.annotation.*;
  * @since 1.0.0
  */
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/user")
 @RequiredArgsConstructor
 @Slf4j
 @Tag(name = "User Management", description = "User account management operations")

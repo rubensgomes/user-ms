@@ -51,9 +51,7 @@ com.rubensgomes.userms/
 ├── repository/     # Data access layer
 ├── model/          # Entity classes
 ├── dto/            # Data transfer objects
-├── config/         # Configuration classes
-├── security/       # Security configuration
-└── exception/      # Custom exceptions
+└── security/       # Security configuration
 ```
 
 ## Database Schema

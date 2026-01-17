@@ -1,0 +1,43 @@
+# User Microservice (user-ms)
+
+> Cloud-native Spring Boot microservice for user account management with JWT authentication.
+
+## Tech Stack
+
+- Java 25, Spring Boot 3.5.x, Gradle 9.1.x
+- MariaDB 11.8.x (production), H2 (development)
+- Spring Security, Spring Data JPA, JWT
+
+## Package Structure
+
+- controller/ - REST API endpoints
+- service/ - Business logic
+- repository/ - Data access (Spring Data JPA)
+- model/ - JPA entities
+- dto/ - Request/response objects
+- security/ - JWT and security config
+
+## API Endpoints
+
+- POST /api/user/register - User registration
+- GET /api/user/confirm - Email confirmation
+- POST /api/auth/login - Authentication (returns JWT)
+- POST /api/auth/forgot-password - Password reset request
+- POST /api/auth/reset-password - Password reset
+- PUT /api/user/change-password - Change password (authenticated)
+- GET /api/user/profile - User profile (authenticated)
+
+## Key Files
+
+- app/src/main/java/com/rubensgomes/userms/UserMsApplication.java - Main application
+- app/src/main/java/com/rubensgomes/userms/controller/UserController.java - User endpoints
+- app/src/main/java/com/rubensgomes/userms/controller/AuthController.java - Auth endpoints
+- app/src/main/java/com/rubensgomes/userms/model/User.java - User entity
+- app/src/main/java/com/rubensgomes/userms/security/JwtTokenProvider.java - JWT handling
+- app/build.gradle.kts - Build configuration
+
+## Documentation
+
+- API.md - Full API specification
+- CLAUDE.md - Development guidelines
+- README.md - Project overview

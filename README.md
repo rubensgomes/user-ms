@@ -6,12 +6,31 @@ It provides APIs to create the user account, confirm the registration of the
 user account via email, change the user's account password, authenticate the 
 user (e.g., during sign in), and display the user account information.
 
+## AI General Disclaimer
+
+For **AI-GENERATED CONTENT**, please refer to [DISCLAIMER](DISCLAIMER.md)
+
+## Branching Strategy
+
+The project is using two branches:
+
+1. **_main_**: which is used as the Trunk-Based Development (TBD) with tagging
+   for new releases.
+2. **_release_**: which contains the most recently released code. That is, every
+   time a release is made, this branch is updated.
+
+## CICD Automation
+
+The CI/CD build pipeline is using the GitHub Workflow Actions. The built
+artifact package is deployed to the following GitHub Package:
+
+- https://maven.pkg.github.com/rubensgomes/jvm-libs
 
 ## Tech Stack
 
-- **Java 21** - Programming language
-- **Spring Boot 3.5.x** - Application framework
-- **Gradle 9.0.x** - Build tool
+- **Java 25** - Programming language
+- **Spring Boot 4.x** - Application framework
+- **Gradle 9.1.x** - Build tool
 - **MariaDB 11.8.x** - Production database
 - **H2 Database** - Development/testing database
 - **Spring Security** - Authentication and authorization
@@ -32,9 +51,7 @@ com.rubensgomes.userms/
 ├── repository/     # Data access layer
 ├── model/          # Entity classes
 ├── dto/            # Data transfer objects
-├── config/         # Configuration classes
-├── security/       # Security configuration
-└── exception/      # Custom exceptions
+└── security/       # Security configuration
 ```
 
 ## Database Schema
@@ -52,8 +69,8 @@ com.rubensgomes.userms/
 
 ### Prerequisites
 
-- Java 21
-- Gradle 9.0.x
+- Java 25
+- Gradle 9.1.x
 - MariaDB 11.8.x (for production)
 - H2 Database (included for development)
 

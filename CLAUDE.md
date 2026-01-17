@@ -22,10 +22,10 @@ code in this repository.
 ## Project Overview
 
 This is a cloud-native Spring Boot microservice for user account management
-written in Java 21. It provides RESTful APIs for user registration,
+written in Java 25. It provides RESTful APIs for user registration,
 authentication, password management, and profile management using JWT tokens.
 
-**Tech Stack**: Java 21, Spring Boot 3.5.x, Gradle 9.0.x, MariaDB 11.8.x, Spring
+**Tech Stack**: Java 25, Spring Boot 3.5.x, Gradle 9.1.x, MariaDB 11.8.x, Spring
 Security, Spring Data JPA, JWT
 
 ## Development Commands
@@ -89,9 +89,7 @@ docker-compose up -d
     - `repository/` - Data access layer (Spring Data JPA)
     - `model/` - JPA entity classes
     - `dto/` - Data transfer objects for API requests/responses
-    - `config/` - Configuration classes
     - `security/` - Security configuration and JWT handling
-    - `exception/` - Custom exception classes
 
 ### Key APIs
 
@@ -148,14 +146,14 @@ Requires MariaDB 11.8.x installation and database setup as per README.md
 ## Documentation
 
 - Swagger UI: http://localhost:8080/swagger-ui.html
-- OpenAPI JSON: http://localhost:8080/v3/api-docs
-- OpenAPI YAML: http://localhost:8080/v3/api-docs.yaml
+- OpenAPI 3.1 JSON: http://localhost:8080/v3/api-docs
+- OpenAPI 3.1 YAML: http://localhost:8080/v3/api-docs.yaml
 - H2 Console (dev profile): http://localhost:8080/h2-console
 - API specifications: [API.md](./API.md)
 
 ## Code Standards
 
-- Java 21 with Amazon Corretto JDK
+- Java 25 with Amazon Corretto JDK
 - Google Java Format for code styling (applied via Spotless)
 - JUnit 5 for testing with Mockito for mocking
 - Spring Boot conventions for REST APIs

@@ -1,8 +1,8 @@
 /*
- * Copyright 2025 Rubens Gomes
+ * Copyright 2026 Rubens Gomes
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ * You may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
@@ -15,15 +15,18 @@
  */
 package com.rubensgomes.userms.security;
 
-import com.rubensgomes.userms.model.User;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.UUID;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
+import com.rubensgomes.userms.model.User;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 /**
  * Spring Security UserDetails implementation for authenticated users.

@@ -1,8 +1,8 @@
 /*
- * Copyright 2025 Rubens Gomes
+ * Copyright 2026 Rubens Gomes
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
+ * You may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  *     http://www.apache.org/licenses/LICENSE-2.0
@@ -15,13 +15,15 @@
  */
 package com.rubensgomes.userms.repository;
 
-import com.rubensgomes.userms.model.User;
 import java.util.Optional;
 import java.util.UUID;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
+
+import com.rubensgomes.userms.model.User;
 
 /**
  * Repository interface for User entity data access operations.

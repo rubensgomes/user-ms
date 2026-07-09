@@ -18,7 +18,7 @@ package com.rubensgomes.userms.controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.rubensgomes.userms.dto.*;
+import com.rubensgomes.userms.domain.dto.*;
 import com.rubensgomes.userms.service.AuthService;
 
 import io.swagger.v3.oas.annotations.Operation;

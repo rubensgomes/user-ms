@@ -99,7 +99,7 @@ public class SecurityConfig {
                     .permitAll()
 
                     // Documentation endpoints
-                    .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html")
+                    .requestMatchers("/", "/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html")
                     .permitAll()
 
                     // H2 console (for development purposes)
@@ -108,6 +108,10 @@ public class SecurityConfig {
 
                     // Actuator endpoints
                     .requestMatchers("/actuator/**")
+                    .permitAll()
+
+                    // Error dispatch (so validation 400s aren't masked by 403)
+                    .requestMatchers("/error")
                     .permitAll()
 
                     // All other endpoints require authentication

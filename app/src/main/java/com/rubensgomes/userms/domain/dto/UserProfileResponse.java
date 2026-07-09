@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.rubensgomes.userms.dto;
+package com.rubensgomes.userms.domain.dto;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

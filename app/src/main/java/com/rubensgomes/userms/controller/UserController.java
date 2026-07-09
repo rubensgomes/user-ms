@@ -20,7 +20,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
-import com.rubensgomes.userms.dto.*;
+import com.rubensgomes.userms.domain.dto.*;
 import com.rubensgomes.userms.security.UserPrincipal;
 import com.rubensgomes.userms.service.UserService;
 

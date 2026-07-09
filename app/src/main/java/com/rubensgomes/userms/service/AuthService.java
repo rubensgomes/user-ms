@@ -23,10 +23,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rubensgomes.userms.dto.LoginRequest;
-import com.rubensgomes.userms.dto.LoginResponse;
-import com.rubensgomes.userms.dto.PasswordResetRequest;
-import com.rubensgomes.userms.model.User;
+import com.rubensgomes.userms.domain.dto.LoginRequest;
+import com.rubensgomes.userms.domain.dto.LoginResponse;
+import com.rubensgomes.userms.domain.dto.PasswordResetRequest;
+import com.rubensgomes.userms.domain.entity.User;
 import com.rubensgomes.userms.repository.UserRepository;
 import com.rubensgomes.userms.security.JwtTokenProvider;
 

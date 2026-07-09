@@ -39,6 +39,16 @@ app:
   jwt:
     secret: ${JWT_SECRET:mySecretKey123456789012345678901234567890}
     expiration: ${JWT_EXPIRATION:86400}
+    # Email Configuration
+    email:
+        # ATTENTION SECRET!!!
+        # temporary SendGrid API Key created on 10/31/2025 and stored in ~/.secrets
+        sendgrid-api-key: ${SENDGRID_API_KEY}
+        from-email: noreply@onbe.com
+        from-name: "Onbe StableRails"
+        support-email: "support@stablerails.com"
+        enabled: true
+
 
 # Server Configuration
 server:

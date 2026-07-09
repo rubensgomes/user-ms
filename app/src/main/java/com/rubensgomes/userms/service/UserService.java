@@ -22,8 +22,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.rubensgomes.userms.dto.*;
-import com.rubensgomes.userms.model.User;
+import com.rubensgomes.userms.domain.dto.*;
+import com.rubensgomes.userms.domain.entity.User;
 import com.rubensgomes.userms.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;

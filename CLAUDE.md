@@ -87,8 +87,10 @@ docker-compose up -d
     - `controller/` - REST controllers for API endpoints
     - `service/` - Business logic layer
     - `repository/` - Data access layer (Spring Data JPA)
-    - `model/` - JPA entity classes
-    - `dto/` - Data transfer objects for API requests/responses
+    - `domain/` - Domain types
+        - `dto/` - Data transfer objects for API requests/responses
+        - `entity/` - JPA entity classes
+        - `model/email/` - Email request/response records
     - `security/` - Security configuration and JWT handling
 
 ### Key APIs

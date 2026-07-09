@@ -87,6 +87,27 @@ com.rubensgomes.userms/
    - Username: `sa`
    - Password: (leave empty)
 
+#### Live Reload with Spring Boot DevTools
+
+Spring Boot DevTools is on the classpath, so the running application can
+automatically restart whenever compiled classes change. To enable this, run the
+application and Gradle's continuous `classes` task in two separate terminals:
+
+**Terminal 1** — start the app with the H2 dev profile:
+```bash
+./gradlew bootRun --args='--spring.profiles.active=dev'
+```
+
+**Terminal 2** — recompile on file changes:
+```bash
+./gradlew -t classes
+```
+
+`-t` (a.k.a. `--continuous`) re-runs the `classes` task every time a source
+file changes. The freshly compiled `.class` files land on the running app's
+classpath, and DevTools detects the change and triggers a live restart
+(typically within 1–2 seconds).
+
 #### Production Setup
 1. Clone the repository
 2. Install and configure MariaDB 11.8.x
@@ -146,6 +167,11 @@ Comprehensive API documentation is available in [API.md](./API.md).
 ```bash
 # Run application with H2 database (development)
 ./gradlew bootRun --args='--spring.profiles.active=dev'
+```
+
+```bash
+# Continuously recompile on file changes (pair with bootRun for DevTools live restart)
+./gradlew -t classes
 ```
 
 ```bash

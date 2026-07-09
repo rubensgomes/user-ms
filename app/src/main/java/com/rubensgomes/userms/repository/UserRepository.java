@@ -23,7 +23,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
-import com.rubensgomes.userms.model.User;
+import com.rubensgomes.userms.domain.entity.User;
 
 /**
  * Repository interface for User entity data access operations.

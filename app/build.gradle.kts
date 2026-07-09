@@ -63,6 +63,8 @@ dependencies {
 
     // Email
     implementation("org.springframework.boot:spring-boot-starter-mail")
+    // SendGrid Email API
+    implementation("com.sendgrid:sendgrid-java:4.10.3")
 
     // ########## developmentOnly ##############################################
     developmentOnly("org.springframework.boot:spring-boot-devtools")
